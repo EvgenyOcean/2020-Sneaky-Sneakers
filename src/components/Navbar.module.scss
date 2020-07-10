@@ -1,0 +1,11 @@
+@import '../styles/variables';
+
+.navbar{
+	background-color: $main-orange;
+}
+
+.cart{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
