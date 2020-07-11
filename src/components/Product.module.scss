@@ -1,0 +1,57 @@
+@import '../styles/variables';
+
+.main{
+  color: $main-orange;
+  font-size: 0.8rem;
+
+  &:hover{
+    .card{
+      border: 0.1rem solid rgba(0,0,0,0.2);
+      box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.2);
+    }
+
+    img{
+      transform: scale(1.5);
+    }
+  }
+}
+
+.card{
+  border: transparent;
+  transition: all .1s linear;
+}
+
+.name{
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+}
+
+.img-container{
+  position: relative;
+  overflow: hidden;
+
+  img{
+    transition: all 2s linear;
+  }
+}
+
+
+.img-container:hover .button{
+  transform: translate(0,0);
+}
+
+.button{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(100%,100%);
+  transition: all .3s linear;
+  z-index: 100;
+}
+
+
+.footer{
+  border-top: transparent;
+  background: transparent;
+  transition: all .1s linear;
+}

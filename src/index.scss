@@ -1,7 +1,12 @@
 @import "~bootstrap/scss/bootstrap";
+@import './styles/variables';
 
 *, *::before, *::after{
   box-sizing: border-box;
+}
+
+body{
+  background-color: $main-grey;
 }
 
 .empty{
