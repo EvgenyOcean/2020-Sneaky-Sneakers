@@ -14,22 +14,22 @@ class Home extends Component {
     this.state = {
       sneakersCatalog: [],
       loading: true,
-      handleClick: () => {},
+      openModal: () => {},
     }
   }
 
   static contextType = DataContext;
 
   componentDidMount(){
-    let {sneakersCatalog, loading, handleClick} = this.context;
+    let {sneakersCatalog, loading, openModal} = this.context;
     if (loading) return; 
-    this.setState({sneakersCatalog, loading, handleClick});
+    this.setState({sneakersCatalog, loading, openModal});
   }
 
   componentDidUpdate(){
-    let {sneakersCatalog, loading, handleClick} = this.context;
+    let {sneakersCatalog, loading, openModal} = this.context;
     if (!this.state.loading) return; 
-    this.setState({sneakersCatalog, loading, handleClick});
+    this.setState({sneakersCatalog, loading, openModal});
   }
 
   render() {
@@ -39,7 +39,7 @@ class Home extends Component {
     if (loading){
       content = <h1>The data is coming...</h1>
     } else {
-      content = sneakersCatalog.map(sneakers => <Product sneakers={sneakers} key={sneakers.id} handleClick={this.state.handleClick}/>)
+      content = sneakersCatalog.map(sneakers => <Product sneakers={sneakers} key={sneakers.id} handleClick={this.state.openModal}/>)
     }
     return (
       <section className={styles.main}>

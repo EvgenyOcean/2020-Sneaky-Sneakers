@@ -7,13 +7,11 @@ import DataContextProvider from './Context';
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <DataContextProvider>
-        <App />
-      </DataContextProvider>
-    </Router>
-  </React.StrictMode>,
+  <Router>
+    <DataContextProvider>
+      <App />
+    </DataContextProvider>
+  </Router>,
   document.getElementById('root')
 );
 

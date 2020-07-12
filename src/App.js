@@ -1,10 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Route, Switch} from 'react-router-dom';
 import Home from './pages/Home';
 import Item from './pages/Item';
 import Navbar from  './components/Navbar';
+import ItemModal from './components/ItemModal';
+
+import {DataContext} from './Context';
 
 function App() {
+  let {show, closeModal} = useContext(DataContext);
+
   return (
     <>
       <Navbar />
@@ -12,6 +17,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/:item" component={Item} />
       </Switch>
+      <ItemModal show={show} onHide={closeModal}/>
     </>
   );
 }

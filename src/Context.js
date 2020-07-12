@@ -10,31 +10,42 @@ class DataContextProvider extends Component {
     this.state = {
       sneakersCatalog: [], 
       loading: true,
+      show: false,
+      detailedSneakers: null
     };
-    this.handleClick = this.handleClick.bind(this);
-    this.handleAddToCart = this.handleAddToCart.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   // just to imitate getting data from a server
+  // and make a deep copy of the data, because usually you don't want to change the reference, what you wanna do is to create a deep copy (in case when there're object in an array obv);
   componentDidMount(){
-    this.setState({sneakersCatalog, loading: false});
+    let deepCopyCatalog = [];
+    for (let sneakers of sneakersCatalog){
+      sneakers = {...sneakers};
+      deepCopyCatalog = [...deepCopyCatalog, sneakers];
+    }
+    this.setState({sneakersCatalog: deepCopyCatalog, loading: false});
   }
 
   // handle Cart click on the home page
-  handleClick(e){
-    let target = e.target; 
-    console.log(target);
+  openModal(detailedSneakers){
+    this.setState({show: true, detailedSneakers});
+  }
+
+  closeModal(e){
+    this.setState({show: false});
   }
 
   // handle cart click on the item page
-  handleAddToCart(e){
-    let target = e.target; 
-    console.log(target);
-  }
+  // handleAddToCart(e){
+  //   let target = e.target; 
+  //   console.log(target);
+  // }
 
   render() {
     return (
-      <DataContext.Provider value={{...this.state, handleAddToCart:this.handleAddToCart,handleClick:this.handleClick}}>
+      <DataContext.Provider value={{...this.state, openModal:this.openModal, closeModal:this.closeModal}}>
         {this.props.children}
       </DataContext.Provider>
     );
