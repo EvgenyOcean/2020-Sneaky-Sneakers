@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import {FaCartPlus} from 'react-icons/fa';
+import {FaCartPlus, FaCartArrowDown} from 'react-icons/fa';
 
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
@@ -32,8 +32,8 @@ class Product extends Component {
 
           <Card.Footer className={"d-flex justify-content-between align-items-center px-2 " + styles.footer}>
             <span className={styles.name}>{name}</span>
-            <Button variant="outline-primary" disabled={inCart} className={"text-capitalize py-1 " + styles.button} onClick={this.props.handleClick.bind(null, this.props.sneakers)}>
-              {inCart ? 'in cart' : <FaCartPlus/>}
+            <Button variant={inCart ? 'success' : 'primary'} disabled={inCart} className="text-capitalize py-1 px-2" onClick={this.props.handleClick.bind(null, this.props.sneakers)}>
+              {inCart ? <FaCartArrowDown /> : <FaCartPlus/>}
             </Button>
           </Card.Footer>
         </Card>

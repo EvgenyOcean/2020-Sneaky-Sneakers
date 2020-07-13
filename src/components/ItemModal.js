@@ -24,11 +24,11 @@ function ItemModal(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body className="d-flex flex-column justify-content-center align-items-center">
-        <img src={props.show ? detailedSneakers.img : ''} alt={props.show ? detailedSneakers.name : ' '}/>
+        <img src={props.show ? detailedSneakers.img : ''} alt={props.show ? detailedSneakers.name : ' '} className={styles.img}/>
         <div className={styles.name}>{props.show ? detailedSneakers.name : ''}</div>
         <div className={styles.price}>{props.show ? '$' + detailedSneakers.price : ''}</div>
         <Button onClick={props.onHide} variant="outline-primary" className="mb-2">Continue Shopping</Button>
-        <Link to="cart" className="btn btn-outline-warning" onClick={props.onHide}>Go To Cart</Link>
+        <Link to="/cart" className="btn btn-outline-warning" onClick={props.onHide}>Go To Cart</Link>
       </Modal.Body>
     </Modal>
   );

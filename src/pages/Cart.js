@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import React from 'react';
 import {DataContext} from '../Context';
 import CartItem from '../components/CartItem';
-import {surfing} from '../data';
 import Partition from '../components/Partition';
+
+// 1. Filtering instead of inCartItems
 
 class Cart extends React.Component{
   constructor(props){
@@ -12,7 +13,6 @@ class Cart extends React.Component{
       inCartItems: [], 
       loading: true,
       extraInfo: new WeakMap(),
-      handleRemove: () => {},
     };
     this.handleQuantityChange = this.handleQuantityChange.bind(this);
   }
@@ -79,7 +79,7 @@ class Cart extends React.Component{
             <h3>Your cart is currently empty.<br/>Go ahead and surf the market!</h3>
           </div>
           <div className="empty-img">
-            <img src={surfing} alt="surfing"/>
+            <img src='/imgs/surfing.svg' alt="surfing"/>
           </div>
         </div>
       )
@@ -100,7 +100,7 @@ class Cart extends React.Component{
               </tr>
             </thead>
             <tbody>
-              {items.map(item => <CartItem item={item} quantity={extraInfo.get(item).requestAmount} total={extraInfo.get(item).total} handleQuantityChange={this.handleQuantityChange} key={item.path} handleRemove={this.handleRemove}/>)}
+              {items.map(item => <CartItem item={item} quantity={extraInfo.get(item).requestAmount} total={extraInfo.get(item).total} handleQuantityChange={this.handleQuantityChange} key={item.id} handleRemove={this.handleRemove}/>)}
             </tbody>
           </table>
           <div className="divider">
@@ -128,7 +128,7 @@ const CartDiv = styled.div`
   padding: 0 1rem;
   margin-top: 2rem; 
   color: #4a4a4a;
-  font-family: Montserrat-SemiBold, sans-serif; 
+  font-family: 'Montserrat', sans-serif !important;
 
   table{
     width: 100%;
@@ -160,7 +160,7 @@ const CartDiv = styled.div`
   .btn{
     text-transform: uppercase; 
     background: #C93636;
-    border-radius: 14px;
+    border-radius: 0.5rem;
     color: white;
     padding: 0 1rem;
   }
@@ -214,6 +214,7 @@ const CartDiv = styled.div`
       list-style-type: none;
       padding: 0;
       margin: 0;
+      font-family: 'Open Sans', sans-serif !important;
     }
 
     li{
@@ -222,7 +223,7 @@ const CartDiv = styled.div`
     }
 
     button{
-      padding: 1rem; 
+      padding: 0.3rem 0.6rem; 
       background: #FFBB0E;
     }
   }

@@ -15,7 +15,7 @@ const sneakersCatalog = [
       Boot opening measures approximately 0-3 inches around
       Denim upper
     `,
-    inCart: false,
+    inCart: true,
   }, 
   {
     id: 1, 

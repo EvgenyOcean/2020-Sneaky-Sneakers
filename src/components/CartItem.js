@@ -4,7 +4,7 @@ import {FaRegTrashAlt, FaPlus, FaMinus} from 'react-icons/fa';
 function CartItem({item, handleQuantityChange, quantity, total, handleRemove}) {
   return (
     <tr>
-      <td><img src={item.imgs[2]} alt={item.name}/></td>
+      <td><img src={item.img} alt={item.name}/></td>
       <td>{item.name}</td>
       <td>{item.price}$</td>
       <td>

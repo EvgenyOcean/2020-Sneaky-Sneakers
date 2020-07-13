@@ -5,13 +5,17 @@
   box-sizing: border-box;
 }
 
+html, body, #root{
+  height: 100%;
+}
+
 body{
   background-color: $main-grey;
 }
 
 .empty{
   margin-top: 2rem;
-  height: calc(100% - 63px - 2rem);
+  height: calc(100% - 70px - 2rem);
   display: flex;
   flex-direction: column;
   justify-content: space-between;  
@@ -30,10 +34,4 @@ body{
 
 img{
   vertical-align: bottom;
-}
-
-@media (max-width: 992px){
-  .empty{
-    height: calc(100% - 106px - 2rem);
-  }
 }

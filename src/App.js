@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Item from './pages/Item';
 import Navbar from  './components/Navbar';
 import ItemModal from './components/ItemModal';
+import Cart from './pages/Cart';
 
 import {DataContext} from './Context';
 
@@ -15,6 +16,7 @@ function App() {
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/cart" component={Cart} />
         <Route exact path="/:item" component={Item} />
       </Switch>
       <ItemModal show={show} onHide={closeModal}/>

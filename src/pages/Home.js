@@ -28,7 +28,9 @@ class Home extends Component {
 
   componentDidUpdate(){
     let {sneakersCatalog, loading, openModal} = this.context;
-    if (!this.state.loading) return; 
+    // it's not gonna work here if we just check for this.state.loading, because context is responsible for inCart property change and onces the property's changed we compare this component's state to the context's one, thus starting rendering with new state. 
+    // and yep, even though objects are tottaly different (due to the deep copy), render only handles the changes between virtualdom and actual dom. 
+    if (this.state.sneakersCatalog === sneakersCatalog) return; 
     this.setState({sneakersCatalog, loading, openModal});
   }
 
