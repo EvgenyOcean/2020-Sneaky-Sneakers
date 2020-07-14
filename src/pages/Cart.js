@@ -85,7 +85,6 @@ class Cart extends React.Component{
       )
     } else {
       const subtotal = items.reduce((prev, current)=> prev + extraInfo.get(current).total ,0);
-      console.log(extraInfo);
       content = (
         <CartDiv>
           <table>

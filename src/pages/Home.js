@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {DataContext} from '../Context';
 import Product from '../components/Product';
+import Title from '../components/Title';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -46,6 +47,9 @@ class Home extends Component {
     return (
       <section className={styles.main}>
         <Container>
+          <Row className="justify-content-center mt-4">
+            <Title title="our products" />
+          </Row>
           <Row>
             {content}
           </Row>
