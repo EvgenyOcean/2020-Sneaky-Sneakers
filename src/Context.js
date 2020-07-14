@@ -17,6 +17,7 @@ class DataContextProvider extends Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleRemoveFromCart = this.handleRemoveFromCart.bind(this);
+    this.handleAddToCart = this.handleAddToCart.bind(this);
   }
 
   // just to imitate getting data from a server
@@ -74,10 +75,20 @@ class DataContextProvider extends Component {
 
 
   // handle cart click on the item page
-  // handleAddToCart(e){
-  //   let target = e.target; 
-  //   console.log(target);
-  // }
+  handleAddToCart(sneakers, e){
+    let currentSneakers = {...sneakers, inCart: !sneakers.inCart};
+
+    let tempCatalog = [];
+    this.state.sneakersCatalog.forEach(sneakers => {
+      let tempSneakers = {...sneakers}; 
+      tempCatalog = [...tempCatalog, tempSneakers];
+    })
+    let currentSneakersIndex = this.state.sneakersCatalog.indexOf(sneakers); 
+    tempCatalog.splice(currentSneakersIndex, 1, currentSneakers);
+    let inCartItems = this.manageInCart(tempCatalog);
+
+    this.setState({sneakersCatalog:tempCatalog, inCartItems});
+  }
 
   manageInCart(catalog){
     return catalog.filter(sneakers => sneakers.inCart);
@@ -85,7 +96,7 @@ class DataContextProvider extends Component {
 
   render() {
     return (
-      <DataContext.Provider value={{...this.state, openModal:this.openModal, closeModal:this.closeModal, handleRemove: this.handleRemoveFromCart}}>
+      <DataContext.Provider value={{...this.state, openModal:this.openModal, closeModal:this.closeModal, handleRemove: this.handleRemoveFromCart, handleAddToCart: this.handleAddToCart}}>
         {this.props.children}
       </DataContext.Provider>
     );

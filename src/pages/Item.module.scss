@@ -1,0 +1,50 @@
+@import '../styles/variables';
+
+.title{
+	font-family: $subtitle;
+	font-size: 2rem;
+}
+
+.img{
+	max-width: 500px;
+	width: 100%;
+}
+
+.media{
+	color: $main-black;
+	font-family: $text;
+
+	display: flex;
+	justify-content: space-between;
+}
+
+.brand{ 
+	font-family: $subtitle;
+	color: $main-violet;
+	font-size: 1.6rem;
+}
+
+.price,
+.size{ 
+	font-family: $text;
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+
+.info{
+	text-transform: uppercase;
+	font-family: $title;
+	margin-bottom: 0;
+	margin-top: 2rem;
+
+}
+
+.text{
+	color: $dark-grey;
+}
+
+// @media (max-width: 800px){
+// 	.media{
+// 		flex-direction: column;
+// 	}
+// }
