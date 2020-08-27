@@ -74,9 +74,9 @@ class Item extends Component {
                   <div className={styles.text}>
                     {sneakers.description}
                   </div>
-                  <div className="btns mt-3">
+                  <div className={styles.btns}>
                     <Link to='/' className="btn btn-outline-primary">Back To Products</Link>
-                    <Button variant={sneakers.inCart ? 'outline-danger' : 'outline-success'} className="ml-2" onClick={(e) => this.handleAddToCart(sneakers, e)}>
+                    <Button variant={sneakers.inCart ? 'outline-danger' : 'outline-success'} onClick={(e) => this.handleAddToCart(sneakers, e)}>
                       {sneakers.inCart ? 'Remove' : 'Add To Cart'}
                     </Button>
                   </div>

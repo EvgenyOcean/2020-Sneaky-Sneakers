@@ -43,8 +43,8 @@
 	color: $dark-grey;
 }
 
-// @media (max-width: 800px){
-// 	.media{
-// 		flex-direction: column;
-// 	}
-// }
+.btns{
+	display: flex;
+	gap: 1rem;
+	margin-top: 2rem;
+}
