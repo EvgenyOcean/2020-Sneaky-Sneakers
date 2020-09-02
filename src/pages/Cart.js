@@ -109,7 +109,7 @@ class Cart extends React.Component{
           <div className="payment">
             <ul>
               <li>Subtotal: {subtotal}$</li>
-              <li>Tax: {subtotal / 100 * 10}$</li>
+              <li>Tax: {(subtotal / 100 * 10).toFixed(2)}$</li>
               <li>Total: {subtotal + (subtotal / 100 * 10)}$</li>
             </ul>
             <button className="btn pay" type="button">Pay with Paypal</button>
